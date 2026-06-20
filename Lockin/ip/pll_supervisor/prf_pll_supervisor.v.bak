@@ -1,0 +1,243 @@
+// =========================================================================
+// MÓDULO: SUPERVISOR DE SINTONIA DA PLL (ZERO-CROSSING + BOOTSTRAP + WATCHDOG)
+// =========================================================================
+// Este bloco mede a frequência aproximada do sinal de entrada, injeta o "chute" 
+// inicial no NCO, configura os parâmetros do filtro (K e shifts) e monitoriza 
+// se a frequência fugir da zona de estabilidade para reiniciar a malha.
+// =========================================================================
+
+module prf_pll_supervisor (
+    input  wire        clk,                  // Clock rápido do sistema (50 MHz)
+    input  wire        reset,                // Reset global do sistema
+    input  wire        lockin_update_pulse,  // Pulso de amostragem do ADC
+    input  wire signed [15:0] ref_1,         // Sinal de referência do ADC (ajusta o tamanho se necessário)
+    
+    // Conexões para o bloco de hardware "lpm_divide_ip" externo
+    output reg  [31:0] den_reg,              // Denominador para o divisor
+    input  wire [31:0] resultado_div,        // Quociente vindo do divisor
+    output reg         update_nco,           // Sinal que dispara o início da divisão
+    input  wire [31:0] delay_divisor_in,     // Ligação ao bit de controlo do pipeline do divisor
+
+    // Saídas de Controlo para o Filtro de Malha (prf_pll_loop_filter)
+    output wire [6:0]  K_amostras,           // Janela do CIC
+    output wire [2:0]  shift_gain,           // Normalização do CIC
+    output wire [4:0]  shift_integral,       // Escalonamento do ganho do PI
+    output wire        pll_reset_out,        // Reset dedicado para o Filtro de Malha
+    
+    // Saídas para Sintonizar o NCO
+    output reg  [31:0] nco_center_frequency, // Frequência central (O "Chute Inicial")
+    output reg  [31:0] phi_inc_reg           // Registo da frequência instantânea calculada
+);
+
+    // =========================================================================
+    // 1. DECLARAÇÃO DE REGISTOS E SINAIS INTERNOS
+    // =========================================================================
+    reg signed [31:0] acumulador_ref;
+    wire [11:0]       media_ref;
+    reg               ref_estado;
+    reg [31:0]        timer_50mhz;
+    reg [31:0]        tempo_ultima_borda;
+    reg [31:0]        periodo_inst;
+    reg [31:0]        acc_periodo_media;
+    reg [6:0]         cont_ciclos;
+    reg [31:0]        delay_divisor;
+
+    // Definição dos Estados da FSM Supervisora
+    localparam [1:0] ST_ACQUISITION   = 2'b00,
+                     ST_BOOTSTRAP     = 2'b01,
+                     ST_LOCK_WATCHDOG = 2'b10;
+
+    reg [1:0] state_reg;
+
+    // Registos de Controlo da FSM
+    reg signed [31:0] f_media_zc;
+    reg signed [31:0] f_chute_ancora;
+    reg [5:0]         cont_estabilizacao;
+
+    reg [6:0] K_amostras_reg;
+    reg [2:0] shift_gain_reg;
+    reg [4:0] shift_integral_reg;
+    reg       pll_internal_reset;
+
+    // Limite de tolerância para o Watchdog (Ajustável conforme o teu sistema)
+    localparam signed [31:0] TIMEOUT_DESVIO = 32'd50000; 
+
+    // Atribuições combinatórias para as portas de saída
+    assign media_ref      = acumulador_ref[21:10]; // Equivale a >>> 10
+    assign K_amostras     = K_amostras_reg;
+    assign shift_gain     = shift_gain_reg;
+    assign shift_integral = shift_integral_reg;
+    assign pll_reset_out  = pll_internal_reset;
+
+    // Detetor do fim da operação do divisor (Sinalizador micro-síncrono)
+    wire novo_dado_freq = (delay_divisor[31] == 1'b1 && delay_divisor[30] == 1'b0);
+
+    // =========================================================================
+    // 2. LÓGICA DO DETETOR DE ZERO-CROSSING (MÁQUINA DO PERÍODO)
+    // =========================================================================
+    always @(posedge clk) begin
+        if (reset) begin
+            timer_50mhz        <= 32'd0;
+            tempo_ultima_borda <= 32'd0;
+            periodo_inst       <= 32'd0;
+            acumulador_ref     <= 32'd0;
+            ref_estado         <= 1'b0;
+            acc_periodo_media  <= 32'd0;
+            cont_ciclos        <= 7'd0;
+            den_reg            <= 32'd0;
+            update_nco         <= 1'b0;
+            delay_divisor      <= 32'd0;
+        end else begin
+            // Contador de tempo absoluto a 50 MHz
+            timer_50mhz <= timer_50mhz + 1'b1;
+            
+            // Lógica por defeito do pipeline do divisor
+            update_nco    <= 1'b0;
+            delay_divisor <= {delay_divisor[30:0], update_nco};
+
+            if (lockin_update_pulse) begin
+                // Filtro IIR Passa-Baixas lento para achar a linha central (Média Dinâmica)
+                acumulador_ref <= acumulador_ref + $signed(ref_1) - $signed(acumulador_ref >>> 10);
+                
+                // Cálculo instantâneo do período entre flancos
+                periodo_inst <= timer_50mhz - tempo_ultima_borda;
+                
+                // --- DETETOR DE BORDA COM HISTÉRESE DINÂMICA (+50 / -50) ---
+                if ($signed({1'b0, ref_1}) > ($signed({1'b0, media_ref}) + 12'd50) && ref_estado == 1'b0) begin
+                    ref_estado         <= 1'b1;
+                    tempo_ultima_borda <= timer_50mhz;
+                     
+                    // Filtro de rejeição de ressalto (Garante período mínimo lógico de ciclos)
+                    if (periodo_inst > 32'd500) begin 
+                        acc_periodo_media <= acc_periodo_media + periodo_inst;
+                        cont_ciclos        <= cont_ciclos + 1'b1;
+                        
+                        // Ao fim de 128 ciclos válidos da onda, calcula o período médio
+                        if (cont_ciclos == 7'd127) begin
+                            den_reg           <= acc_periodo_media; // Envia o acumulador acumulado para o divisor
+                            acc_periodo_media <= 32'd0;
+                            cont_ciclos       <= 7'd0;
+                            update_nco        <= 1'b1;            // Dispara o IP divisor lpm_divide
+                        end
+                    end
+                end 
+                else if ($signed({1'b0, ref_1}) < ($signed({1'b0, media_ref}) - 12'd50) && ref_estado == 1'b1) begin
+                    ref_estado <= 1'b0;
+                end
+            end
+        end
+    end
+
+    // =========================================================================
+    // 3. FSM SUPERVISORA (ESTABILIZAÇÃO, CHUTE INICIAL E WATCHDOG)
+    // =========================================================================
+    always @(posedge clk) begin
+        if (reset) begin
+            state_reg            <= ST_ACQUISITION;
+            f_media_zc           <= 32'd0;
+            f_chute_ancora       <= 32'd0;
+            cont_estabilizacao   <= 6'd0;
+            pll_internal_reset   <= 1'b1;
+            nco_center_frequency <= 32'd0;
+            phi_inc_reg          <= 32'd0;
+            
+            // Defaults seguros de inicialização
+            K_amostras_reg       <= 7'd64;
+            shift_gain_reg       <= 3'd6;
+            shift_integral_reg   <= 5'd12;
+        end else begin
+            
+            // Captura o resultado da divisão e atualiza o filtro IIR da Frequência Média
+            if (novo_dado_freq) begin
+                phi_inc_reg <= resultado_div;
+                
+                if (f_media_zc == 32'd0) 
+                    f_media_zc <= resultado_div;
+                else
+                    f_media_zc <= f_media_zc + $signed({1'b0, resultado_div}) - (f_media_zc >>> 6); // Filtro suavizador IIR
+            end
+
+            // Controlo da Máquina de Estados de Sintonização
+            case (state_reg)
+                
+                // -----------------------------------------------------------------
+                // ST_ACQUISITION: Aguarda leituras consecutivas e estáveis do ZC
+                // -----------------------------------------------------------------
+                ST_ACQUISITION: begin
+                    pll_internal_reset <= 1'b1; // Segura o filtro de malha em reset absoluto
+                    
+                    if (novo_dado_freq) begin
+                        // Verifica se a leitura instantânea está dentro de uma janela estreita da média
+                        if ($signed(resultado_div - f_media_zc[31:0]) < 32'd2000 && 
+                            $signed(f_media_zc[31:0] - resultado_div) < 32'd2000) begin
+                            
+                            cont_estabilizacao <= cont_estabilizacao + 1'b1;
+                            
+                            // Se 32 leituras seguidas forem coerentes, a frequência estabilizou!
+                            if (cont_estabilizacao == 6'd32) begin
+                                state_reg <= ST_BOOTSTRAP;
+                            end
+                        end else begin
+                            cont_estabilizacao <= 6'd0; // Sinal ruidoso ou instável, reinicia contagem
+                        end
+                    end
+                end
+
+                // -----------------------------------------------------------------
+                // ST_BOOTSTRAP: Mapeia o K dinâmico e dispara o "Chute Inicial"
+                // -----------------------------------------------------------------
+                ST_BOOTSTRAP: begin
+                    f_chute_ancora <= f_media_zc; // Guarda a frequência estável como âncora de segurança
+                    
+                    // --- TABELA DE DECISÃO DOS PARÂMETROS DO LOOP (Baseado na Frequência) ---
+                    if (f_media_zc > 32'h40000000) begin
+                        // GAMA ALTA: Janela curta para velocidade (K=16)
+                        K_amostras_reg     <= 7'd16;
+                        shift_gain_reg     <= 3'd4;
+                        shift_integral_reg <= 5'd0;  // Ganho integral mais agressivo
+                    end 
+                    else if (f_media_zc > 32'h20000000) begin
+                        // GAMA MÉDIA: Janela equilibrada (K=32)
+                        K_amostras_reg     <= 7'd32;
+                        shift_gain_reg     <= 3'd5;
+                        shift_integral_reg <= 5'd6;  // Ganho integral intermédio
+                    end 
+                    else begin
+                        // GAMA BAIXA: Janela longa para forte atenuação de ruído (K=64)
+                        K_amostras_reg     <= 7'd64;
+                        shift_gain_reg     <= 3'd6;
+                        shift_integral_reg <= 5'd12; // Ganho integral suave para estabilizar
+                    end
+
+                    // Dá o "Chute Inicial": Envia a frequência exata medida para o centro do NCO
+                    nco_center_frequency <= f_media_zc; 
+
+                    // Liberta o reset do filtro. A PLL começa a travar com a fase exata instantaneamente!
+                    pll_internal_reset   <= 1'b0; 
+                    cont_estabilizacao   <= 6'd0;
+                    state_reg            <= ST_LOCK_WATCHDOG;
+                end
+
+                // -----------------------------------------------------------------
+                // ST_LOCK_WATCHDOG: Monitoriza a estabilidade a longo prazo
+                // -----------------------------------------------------------------
+                ST_LOCK_WATCHDOG: begin
+                    pll_internal_reset <= 1'b0; // Filtro de malha corre solto e trancado
+
+                    if (novo_dado_freq) begin
+                        // Calcula a diferença absoluta em relação ao chute original
+                        wire signed [31:0] desvio = f_media_zc - f_chute_ancora;
+                        
+                        // Se o sinal der um salto violento ou mudar de banda drasticamente:
+                        if (desvio > TIMEOUT_DESVIO || desvio < -TIMEOUT_DESVIO) begin
+                            state_reg <= ST_ACQUISITION; // Derruba o loop e reinicia a captura limpa
+                        end
+                    end
+                end
+
+                default: state_reg <= ST_ACQUISITION;
+            endcase
+        end
+    end
+
+endmodule

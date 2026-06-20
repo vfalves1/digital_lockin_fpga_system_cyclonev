@@ -1,0 +1,28 @@
+Info: Starting: Create block symbol file (.bsf)
+Info: qsys-generate C:\Users\va956\Desktop\Magnetometro_de_Rb\Lockin\nco_sin_gen.qsys --block-symbol-file --output-directory=C:\Users\va956\Desktop\Magnetometro_de_Rb\Lockin\nco_sin_gen --family="Cyclone V" --part=5CSXFC6D6F31C6
+Progress: Loading Lockin/nco_sin_gen.qsys
+Progress: Reading input file
+Progress: Adding nco_ii_0 [altera_nco_ii 18.1]
+Progress: Parameterizing module nco_ii_0
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: qsys-generate succeeded.
+Info: Finished: Create block symbol file (.bsf)
+Info: 
+Info: Starting: Create HDL design files for synthesis
+Info: qsys-generate C:\Users\va956\Desktop\Magnetometro_de_Rb\Lockin\nco_sin_gen.qsys --synthesis=VERILOG --output-directory=C:\Users\va956\Desktop\Magnetometro_de_Rb\Lockin\nco_sin_gen\synthesis --family="Cyclone V" --part=5CSXFC6D6F31C6
+Progress: Loading Lockin/nco_sin_gen.qsys
+Progress: Reading input file
+Progress: Adding nco_ii_0 [altera_nco_ii 18.1]
+Progress: Parameterizing module nco_ii_0
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: nco_sin_gen: Generating nco_sin_gen "nco_sin_gen" for QUARTUS_SYNTH
+Info: nco_ii_0: "nco_sin_gen" instantiated altera_nco_ii "nco_ii_0"
+Info: nco_sin_gen: Done "nco_sin_gen" with 2 modules, 16 files
+Info: qsys-generate succeeded.
+Info: Finished: Create HDL design files for synthesis

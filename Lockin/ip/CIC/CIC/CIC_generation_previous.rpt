@@ -1,0 +1,28 @@
+Info: Starting: Create block symbol file (.bsf)
+Info: qsys-generate C:\Users\va956\Desktop\Magnetometro_de_Rb\Lockin\ip\CIC\CIC.qsys --block-symbol-file --output-directory=C:\Users\va956\Desktop\Magnetometro_de_Rb\Lockin\ip\CIC\CIC --family="Cyclone V" --part=5CSXFC6D6F31C6
+Progress: Loading CIC/CIC.qsys
+Progress: Reading input file
+Progress: Adding cic_ii_0 [altera_cic_ii 18.1]
+Progress: Parameterizing module cic_ii_0
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: qsys-generate succeeded.
+Info: Finished: Create block symbol file (.bsf)
+Info: 
+Info: Starting: Create HDL design files for synthesis
+Info: qsys-generate C:\Users\va956\Desktop\Magnetometro_de_Rb\Lockin\ip\CIC\CIC.qsys --synthesis=VERILOG --output-directory=C:\Users\va956\Desktop\Magnetometro_de_Rb\Lockin\ip\CIC\CIC\synthesis --family="Cyclone V" --part=5CSXFC6D6F31C6
+Progress: Loading CIC/CIC.qsys
+Progress: Reading input file
+Progress: Adding cic_ii_0 [altera_cic_ii 18.1]
+Progress: Parameterizing module cic_ii_0
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: CIC: Generating CIC "CIC" for QUARTUS_SYNTH
+Info: cic_ii_0: "CIC" instantiated altera_cic_ii "cic_ii_0"
+Info: CIC: Done "CIC" with 2 modules, 30 files
+Info: qsys-generate succeeded.
+Info: Finished: Create HDL design files for synthesis

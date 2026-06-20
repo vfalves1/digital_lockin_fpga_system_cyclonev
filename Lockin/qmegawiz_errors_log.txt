@@ -1,0 +1,66 @@
+
+
+C:/Users/va956/Desktop/Magnetometro_de_Rb/Lockin/ip/PLL/pll_20mhz.v
+
+Jun 01 11PM:37:15>: Megafunction PLL Intel FPGA IP v18.1 is not listed in any 
+wizard.lst file in the specified library path(s).Wizard launch aborted
+
+C:/Users/va956/Desktop/Magnetometro_de_Rb/Lockin/ip/PLL/pll_20mhz.v
+
+Jun 01 11PM:37:45>: Megafunction PLL Intel FPGA IP v18.1 is not listed in any 
+wizard.lst file in the specified library path(s).Wizard launch aborted
+
+C:/Users/va956/Desktop/Magnetometro_de_Rb/Lockin/ip/PLL/pll_20mhz.v
+
+Jun 01 11PM:38:22>: Megafunction PLL Intel FPGA IP v18.1 is not listed in any 
+wizard.lst file in the specified library path(s).Wizard launch aborted
+
+C:/Users/va956/Desktop/Magnetometro_de_Rb/Lockin/ip/PLL/pll_20mhz.v
+
+Jun 01 11PM:38:52>: Megafunction PLL Intel FPGA IP v18.1 is not listed in any 
+wizard.lst file in the specified library path(s).Wizard launch aborted
+
+C:/Users/va956/Desktop/Magnetometro_de_Rb/Lockin/ip/PLL/pll_20mhz.v
+
+Jun 01 11PM:40:27>: Megafunction PLL Intel FPGA IP v18.1 is not listed in any 
+wizard.lst file in the specified library path(s).Wizard launch aborted
+
+C:/Users/va956/Desktop/Magnetometro_de_Rb/Lockin/ip/PLL/pll_20mhz.v
+
+Jun 01 11PM:41:11>: Megafunction PLL Intel FPGA IP v18.1 is not listed in any 
+wizard.lst file in the specified library path(s).Wizard launch aborted
+
+C:/Users/va956/Desktop/Magnetometro_de_Rb/Lockin/ip/PLL/pll_20mhz.v
+
+Jun 01 11PM:41:31>: Megafunction PLL Intel FPGA IP v18.1 is not listed in any 
+wizard.lst file in the specified library path(s).Wizard launch aborted
+
+C:/Users/va956/Desktop/Magnetometro_de_Rb/Lockin/ip/PLL/pll_20mhz.v
+
+Jun 01 11PM:44:00>: Megafunction PLL Intel FPGA IP v18.1 is not listed in any 
+wizard.lst file in the specified library path(s).Wizard launch aborted
+
+C:/Users/va956/Desktop/Magnetometro_de_Rb/Lockin/ip/PLL/pll_20mhz.v
+
+Jun 01 11PM:44:06>: Megafunction PLL Intel FPGA IP v18.1 is not listed in any 
+wizard.lst file in the specified library path(s).Wizard launch aborted
+
+C:/Users/va956/Desktop/Magnetometro_de_Rb/Lockin/ip/PLL/pll_20mhz.v
+
+Jun 01 11PM:50:58>: Megafunction PLL Intel FPGA IP v18.1 is not listed in any 
+wizard.lst file in the specified library path(s).Wizard launch aborted
+
+C:/Users/va956/Desktop/Magnetometro_de_Rb/Lockin/ip/PLL/pll_20mhz.v
+
+Jun 01 11PM:51:02>: Megafunction PLL Intel FPGA IP v18.1 is not listed in any 
+wizard.lst file in the specified library path(s).Wizard launch aborted
+
+C:/Users/va956/Desktop/Magnetometro_de_Rb/Lockin/ip/PLL/pll_20mhz.v
+
+Jun 03 11PM:29:10>: Megafunction PLL Intel FPGA IP v18.1 is not listed in any 
+wizard.lst file in the specified library path(s).Wizard launch aborted
+
+C:/Users/va956/Desktop/Magnetometro_de_Rb/Lockin/ip/PLL/pll_20mhz.v
+
+Jun 05 09PM:50:05>: Megafunction PLL Intel FPGA IP v18.1 is not listed in any 
+wizard.lst file in the specified library path(s).Wizard launch aborted

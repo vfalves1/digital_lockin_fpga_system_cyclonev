@@ -1,0 +1,574 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/va956/Desktop/Magnetometro_de_Rb/Lockin/simulation/modelsim
+valtera_avalon_sc_fifo
+Z1 !s110 1780359070
+!i10b 1
+!s100 4mK@em][G=j]om3zJIhOc0
+I>BSOSVAReG5ZfUEP8CfK>2
+VDg1SIo80bB@j0V0VzS_@n1
+R0
+Z2 w1779833959
+8C:/Users/va956/Desktop/Magnetometro_de_Rb/Lockin/ip/FIR/FIR_II_sim/altera_avalon_sc_fifo.v
+FC:/Users/va956/Desktop/Magnetometro_de_Rb/Lockin/ip/FIR/FIR_II_sim/altera_avalon_sc_fifo.v
+L0 21
+OV;L;10.5b;63
+r1
+!s85 0
+31
+Z3 !s108 1780359070.000000
+!s107 C:/Users/va956/Desktop/Magnetometro_de_Rb/Lockin/ip/FIR/FIR_II_sim/altera_avalon_sc_fifo.v|
+!s90 -reportprogress|300|C:/Users/va956/Desktop/Magnetometro_de_Rb/Lockin/ip/FIR/FIR_II_sim/altera_avalon_sc_fifo.v|
+!i113 1
+tCvgOpt 0
+Eauk_dspip_avalon_streaming_controller_hpfir
+R2
+Z4 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
+Z5 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z6 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+R0
+Z7 8C:/Users/va956/Desktop/Magnetometro_de_Rb/Lockin/ip/FIR/FIR_II_sim/auk_dspip_avalon_streaming_controller_hpfir.vhd
+Z8 FC:/Users/va956/Desktop/Magnetometro_de_Rb/Lockin/ip/FIR/FIR_II_sim/auk_dspip_avalon_streaming_controller_hpfir.vhd
+l0
+L41
+VmzLKcb3?XGg7F;Pc`g^U30
+!s100 ORMaER9G]`b[YkFGoXo<C3
+Z9 OV;C;10.5b;63
+32
+R1
+!i10b 1
+R3
+Z10 !s90 -reportprogress|300|C:/Users/va956/Desktop/Magnetometro_de_Rb/Lockin/ip/FIR/FIR_II_sim/auk_dspip_avalon_streaming_controller_hpfir.vhd|
+Z11 !s107 C:/Users/va956/Desktop/Magnetometro_de_Rb/Lockin/ip/FIR/FIR_II_sim/auk_dspip_avalon_streaming_controller_hpfir.vhd|
+!i113 1
+Z12 tExplicit 1 CvgOpt 0
+Astruct
+R4
+R5
+R6
+DEx4 work 43 auk_dspip_avalon_streaming_controller_hpfir 0 22 mzLKcb3?XGg7F;Pc`g^U30
+l72
+L64
+V5[9N9aCPWceEVmzW7?haR3
+!s100 MWO51>Fz`WN=CIY16D1gH2
+R9
+32
+R1
+!i10b 1
+R3
+R10
+R11
+!i113 1
+R12
+Eauk_dspip_avalon_streaming_sink_hpfir
+R2
+Z13 DPx9 altera_mf 20 altera_mf_components 0 22 gV:l9C^?PSb6]b5V?_jR@3
+Z14 DPx4 work 24 auk_dspip_math_pkg_hpfir 0 22 SMh<mnKIT3f?e`UL8YAf30
+Z15 DPx4 work 23 auk_dspip_lib_pkg_hpfir 0 22 ]n@P0Cg`Kmfb@EQ`hbJ3C2
+Z16 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
+R5
+R6
+R0
+Z17 8C:/Users/va956/Desktop/Magnetometro_de_Rb/Lockin/ip/FIR/FIR_II_sim/auk_dspip_avalon_streaming_sink_hpfir.vhd
+Z18 FC:/Users/va956/Desktop/Magnetometro_de_Rb/Lockin/ip/FIR/FIR_II_sim/auk_dspip_avalon_streaming_sink_hpfir.vhd
+l0
+L56
+Vc3aP]jD`FWLDmMbL02M?71
+!s100 0WO5KznO2MM4IEKTLL4ea1
+R9
+32
+R1
+!i10b 1
+R3
+Z19 !s90 -reportprogress|300|C:/Users/va956/Desktop/Magnetometro_de_Rb/Lockin/ip/FIR/FIR_II_sim/auk_dspip_avalon_streaming_sink_hpfir.vhd|
+Z20 !s107 C:/Users/va956/Desktop/Magnetometro_de_Rb/Lockin/ip/FIR/FIR_II_sim/auk_dspip_avalon_streaming_sink_hpfir.vhd|
+!i113 1
+R12
+Artl
+R13
+R14
+R15
+R16
+R5
+R6
+DEx4 work 37 auk_dspip_avalon_streaming_sink_hpfir 0 22 c3aP]jD`FWLDmMbL02M?71
+l164
+L106
+V>JXTP:[nnkgAK4J09X0Y10
+!s100 aKlIFR2DezO>78LXQeZZW1
+R9
+32
+R1
+!i10b 1
+R3
+R19
+R20
+!i113 1
+R12
+Eauk_dspip_avalon_streaming_source_hpfir
+R2
+R14
+R13
+R16
+R5
+R6
+R0
+Z21 8C:/Users/va956/Desktop/Magnetometro_de_Rb/Lockin/ip/FIR/FIR_II_sim/auk_dspip_avalon_streaming_source_hpfir.vhd
+Z22 FC:/Users/va956/Desktop/Magnetometro_de_Rb/Lockin/ip/FIR/FIR_II_sim/auk_dspip_avalon_streaming_source_hpfir.vhd
+l0
+L70
+Vh0^KLKk9RPWE9FkPV688a0
+!s100 z_E>RhDjTK@iSkAe6<CzM1
+R9
+32
+R1
+!i10b 1
+R3
+Z23 !s90 -reportprogress|300|C:/Users/va956/Desktop/Magnetometro_de_Rb/Lockin/ip/FIR/FIR_II_sim/auk_dspip_avalon_streaming_source_hpfir.vhd|
+Z24 !s107 C:/Users/va956/Desktop/Magnetometro_de_Rb/Lockin/ip/FIR/FIR_II_sim/auk_dspip_avalon_streaming_source_hpfir.vhd|
+!i113 1
+R12
+Artl
+R14
+R13
+R16
+R5
+R6
+DEx4 work 39 auk_dspip_avalon_streaming_source_hpfir 0 22 h0^KLKk9RPWE9FkPV688a0
+l190
+L109
+Vam1ie5h2KMKXT`jCDKfMG0
+!s100 9_^:d_>A;JGb2ekO`XAiL1
+R9
+32
+R1
+!i10b 1
+R3
+R23
+R24
+!i113 1
+R12
+Pauk_dspip_lib_pkg_hpfir
+R14
+R16
+R5
+R6
+R2
+R0
+8C:/Users/va956/Desktop/Magnetometro_de_Rb/Lockin/ip/FIR/FIR_II_sim/auk_dspip_lib_pkg_hpfir.vhd
+FC:/Users/va956/Desktop/Magnetometro_de_Rb/Lockin/ip/FIR/FIR_II_sim/auk_dspip_lib_pkg_hpfir.vhd
+l0
+L22
+V]n@P0Cg`Kmfb@EQ`hbJ3C2
+!s100 f?>LI6^Y:?0:4C>aOS6?X2
+R9
+32
+R1
+!i10b 1
+R3
+!s90 -reportprogress|300|C:/Users/va956/Desktop/Magnetometro_de_Rb/Lockin/ip/FIR/FIR_II_sim/auk_dspip_lib_pkg_hpfir.vhd|
+!s107 C:/Users/va956/Desktop/Magnetometro_de_Rb/Lockin/ip/FIR/FIR_II_sim/auk_dspip_lib_pkg_hpfir.vhd|
+!i113 1
+R12
+Pauk_dspip_math_pkg_hpfir
+R16
+R5
+R6
+R2
+R0
+Z25 8C:/Users/va956/Desktop/Magnetometro_de_Rb/Lockin/ip/FIR/FIR_II_sim/auk_dspip_math_pkg_hpfir.vhd
+Z26 FC:/Users/va956/Desktop/Magnetometro_de_Rb/Lockin/ip/FIR/FIR_II_sim/auk_dspip_math_pkg_hpfir.vhd
+l0
+L54
+VSMh<mnKIT3f?e`UL8YAf30
+!s100 @O6TWU38[<`Y=f_oja2am1
+R9
+32
+b1
+R1
+!i10b 1
+R3
+Z27 !s90 -reportprogress|300|C:/Users/va956/Desktop/Magnetometro_de_Rb/Lockin/ip/FIR/FIR_II_sim/auk_dspip_math_pkg_hpfir.vhd|
+Z28 !s107 C:/Users/va956/Desktop/Magnetometro_de_Rb/Lockin/ip/FIR/FIR_II_sim/auk_dspip_math_pkg_hpfir.vhd|
+!i113 1
+R12
+Bbody
+R14
+R16
+R5
+R6
+l0
+L131
+V`OCm?;Q96zD:4j0=aCH`Y0
+!s100 EDZNSThdcYV1lkL7HbnIz0
+R9
+32
+R1
+!i10b 1
+R3
+R27
+R28
+!i113 1
+R12
+Eauk_dspip_roundsat_hpfir
+R2
+R16
+R5
+R6
+R0
+Z29 8C:/Users/va956/Desktop/Magnetometro_de_Rb/Lockin/ip/FIR/FIR_II_sim/auk_dspip_roundsat_hpfir.vhd
+Z30 FC:/Users/va956/Desktop/Magnetometro_de_Rb/Lockin/ip/FIR/FIR_II_sim/auk_dspip_roundsat_hpfir.vhd
+l0
+L39
+VL8Q=Q6XfD:5e:WVJZ6k@E3
+!s100 S`Ha]KjQXV0CDDgljgCX;0
+R9
+32
+R1
+!i10b 1
+R3
+Z31 !s90 -reportprogress|300|C:/Users/va956/Desktop/Magnetometro_de_Rb/Lockin/ip/FIR/FIR_II_sim/auk_dspip_roundsat_hpfir.vhd|
+Z32 !s107 C:/Users/va956/Desktop/Magnetometro_de_Rb/Lockin/ip/FIR/FIR_II_sim/auk_dspip_roundsat_hpfir.vhd|
+!i113 1
+R12
+Abeh
+R16
+R5
+R6
+DEx4 work 24 auk_dspip_roundsat_hpfir 0 22 L8Q=Q6XfD:5e:WVJZ6k@E3
+l66
+L57
+Va<FU3bo7Iz2RgbS_<XQf52
+!s100 SAz6VWg0=:KiPPFk<lih43
+R9
+32
+R1
+!i10b 1
+R3
+R31
+R32
+!i113 1
+R12
+Edspba_delay
+R2
+Z33 DPx4 work 21 dspba_library_package 0 22 KTlXWShT2<@=FUf9L`nD@1
+R5
+R6
+R0
+Z34 8C:/Users/va956/Desktop/Magnetometro_de_Rb/Lockin/ip/FIR/FIR_II_sim/dspba_library.vhd
+Z35 FC:/Users/va956/Desktop/Magnetometro_de_Rb/Lockin/ip/FIR/FIR_II_sim/dspba_library.vhd
+l0
+L18
+Vh_99QD]IcO`z?>TBh9:D_2
+!s100 >TY9@l4a>2O5Wd_6jF4:g0
+R9
+32
+R1
+!i10b 1
+R3
+Z36 !s90 -reportprogress|300|C:/Users/va956/Desktop/Magnetometro_de_Rb/Lockin/ip/FIR/FIR_II_sim/dspba_library.vhd|
+Z37 !s107 C:/Users/va956/Desktop/Magnetometro_de_Rb/Lockin/ip/FIR/FIR_II_sim/dspba_library.vhd|
+!i113 1
+R12
+Adelay
+R33
+R5
+R6
+DEx4 work 11 dspba_delay 0 22 h_99QD]IcO`z?>TBh9:D_2
+l37
+L34
+VJ?aanBflNgc[^b7nS;oh72
+!s100 DAfPXKZhR<Ac>Wg8zYj1H3
+R9
+32
+R1
+!i10b 1
+R3
+R36
+R37
+!i113 1
+R12
+Pdspba_library_package
+R5
+R6
+R2
+R0
+8C:/Users/va956/Desktop/Magnetometro_de_Rb/Lockin/ip/FIR/FIR_II_sim/dspba_library_package.vhd
+FC:/Users/va956/Desktop/Magnetometro_de_Rb/Lockin/ip/FIR/FIR_II_sim/dspba_library_package.vhd
+l0
+L17
+VKTlXWShT2<@=FUf9L`nD@1
+!s100 @e;XE0e^oAdIdzY=Rc];H3
+R9
+32
+R1
+!i10b 1
+R3
+!s90 -reportprogress|300|C:/Users/va956/Desktop/Magnetometro_de_Rb/Lockin/ip/FIR/FIR_II_sim/dspba_library_package.vhd|
+!s107 C:/Users/va956/Desktop/Magnetometro_de_Rb/Lockin/ip/FIR/FIR_II_sim/dspba_library_package.vhd|
+!i113 1
+R12
+Edspba_pipe
+R2
+R16
+R5
+R6
+R0
+R34
+R35
+l0
+L343
+VI4KODRF]=ojndU_8;Qa<A0
+!s100 ko3XcgZgdPgSD;SDR?Wmi2
+R9
+32
+R1
+!i10b 1
+R3
+R36
+R37
+!i113 1
+R12
+Artl
+R16
+R5
+R6
+DEx4 work 10 dspba_pipe 0 22 I4KODRF]=ojndU_8;Qa<A0
+l362
+L356
+V04Zm]fe?nYFNSJ9@9:?0J0
+!s100 =]hA3YBJaaU9dNBMla?I?2
+R9
+32
+R1
+!i10b 1
+R3
+R36
+R37
+!i113 1
+R12
+Edspba_sync_reg
+R2
+R33
+R16
+R5
+R6
+R0
+R34
+R35
+l0
+L93
+V^:zbgnPCjHS7<>M40RfPY2
+!s100 G`[2Ci2RQWoL`zK>2h>oj2
+R9
+32
+R1
+!i10b 1
+R3
+R36
+R37
+!i113 1
+R12
+Async_reg
+R33
+R16
+R5
+R6
+DEx4 work 14 dspba_sync_reg 0 22 ^:zbgnPCjHS7<>M40RfPY2
+l136
+L117
+V4klTB7YQGR@?1BoPQPHB^1
+!s100 D5ba3Bk5_`1nL6?j<JkK81
+R9
+32
+R1
+!i10b 1
+R3
+R36
+R37
+!i113 1
+R12
+Efir_ii
+R2
+R14
+R16
+R15
+R5
+R6
+R0
+Z38 8C:/Users/va956/Desktop/Magnetometro_de_Rb/Lockin/ip/FIR/FIR_II_sim/FIR_II.vhd
+Z39 FC:/Users/va956/Desktop/Magnetometro_de_Rb/Lockin/ip/FIR/FIR_II_sim/FIR_II.vhd
+l0
+L19
+VP9lUGMc=^BFZCPbQX9JHY0
+!s100 V`NCUoi:4APeNJ1[5?=hC0
+R9
+32
+Z40 !s110 1780359071
+!i10b 1
+Z41 !s108 1780359071.000000
+Z42 !s90 -reportprogress|300|C:/Users/va956/Desktop/Magnetometro_de_Rb/Lockin/ip/FIR/FIR_II_sim/FIR_II.vhd|
+Z43 !s107 C:/Users/va956/Desktop/Magnetometro_de_Rb/Lockin/ip/FIR/FIR_II_sim/FIR_II.vhd|
+!i113 1
+R12
+Asyn
+R14
+R16
+R15
+R5
+R6
+Z44 DEx4 work 6 fir_ii 0 22 P9lUGMc=^BFZCPbQX9JHY0
+l56
+L33
+VKV3C;4Q>O=hQeFA27QfKo3
+!s100 7cWYGLK<HRBB4c6W5<G:n0
+R9
+32
+R40
+!i10b 1
+R41
+R42
+R43
+!i113 1
+R12
+Efir_ii_ast
+R2
+R14
+R15
+R16
+R5
+R6
+R0
+Z45 8C:/Users/va956/Desktop/Magnetometro_de_Rb/Lockin/ip/FIR/FIR_II_sim/FIR_II_ast.vhd
+Z46 FC:/Users/va956/Desktop/Magnetometro_de_Rb/Lockin/ip/FIR/FIR_II_sim/FIR_II_ast.vhd
+l0
+L9
+Ve6XU3JGbhdDb<[1d9V:Q>1
+!s100 <F3dokJMQQiaam:hDb_BD2
+R9
+32
+R1
+!i10b 1
+R3
+Z47 !s90 -reportprogress|300|C:/Users/va956/Desktop/Magnetometro_de_Rb/Lockin/ip/FIR/FIR_II_sim/FIR_II_ast.vhd|
+Z48 !s107 C:/Users/va956/Desktop/Magnetometro_de_Rb/Lockin/ip/FIR/FIR_II_sim/FIR_II_ast.vhd|
+!i113 1
+R12
+Astruct
+R14
+R15
+R16
+R5
+R6
+DEx4 work 10 fir_ii_ast 0 22 e6XU3JGbhdDb<[1d9V:Q>1
+l88
+L55
+Vg8TLLQV9V`@><[=lj<IdO2
+!s100 ^hcPc@>B1:[2kL3F9e7Rl3
+R9
+32
+R1
+!i10b 1
+R3
+R47
+R48
+!i113 1
+R12
+Efir_ii_rtl_core
+R2
+Z49 DPx3 lpm 14 lpm_components 0 22 BZZBj]8LhndN7CkCjD@L`2
+Z50 DPx12 altera_lnsim 23 altera_lnsim_components 0 22 QZo1Vh6en2ZO3=hNmAfQ>0
+R13
+R33
+Z51 DPx4 ieee 9 math_real 0 22 Sk6CSihbPL<f[^Shm]=KX0
+R16
+R5
+R6
+R0
+Z52 8C:/Users/va956/Desktop/Magnetometro_de_Rb/Lockin/ip/FIR/FIR_II_sim/FIR_II_rtl_core.vhd
+Z53 FC:/Users/va956/Desktop/Magnetometro_de_Rb/Lockin/ip/FIR/FIR_II_sim/FIR_II_rtl_core.vhd
+l0
+L36
+VMdQnMeX03DD_?Gm=;F<PE3
+!s100 AVoaakQb_MT9Y>=8D;nP@3
+R9
+32
+R1
+!i10b 1
+R3
+Z54 !s90 -reportprogress|300|C:/Users/va956/Desktop/Magnetometro_de_Rb/Lockin/ip/FIR/FIR_II_sim/FIR_II_rtl_core.vhd|
+Z55 !s107 C:/Users/va956/Desktop/Magnetometro_de_Rb/Lockin/ip/FIR/FIR_II_sim/FIR_II_rtl_core.vhd|
+!i113 1
+R12
+Anormal
+R49
+R50
+R13
+R33
+R51
+R16
+R5
+R6
+DEx4 work 15 fir_ii_rtl_core 0 22 MdQnMeX03DD_?Gm=;F<PE3
+l165
+L49
+VHmNVk0h8Zj]nL_TShk2f;2
+!s100 oJ??bo`J2lhOXWJBWJQ273
+R9
+32
+R1
+!i10b 1
+R3
+R54
+R55
+!i113 1
+R12
+Efir_ii_tb
+R2
+R16
+R5
+R6
+R0
+Z56 8C:/Users/va956/Desktop/Magnetometro_de_Rb/Lockin/ip/FIR/FIR_II_sim/FIR_II_tb.vhd
+Z57 FC:/Users/va956/Desktop/Magnetometro_de_Rb/Lockin/ip/FIR/FIR_II_sim/FIR_II_tb.vhd
+l0
+L20
+VHZ?@FYlWiZ0AD:C]L]MPE1
+!s100 2?@2caMa[WmihggJ23]BJ0
+R9
+32
+R40
+!i10b 1
+R41
+Z58 !s90 -reportprogress|300|C:/Users/va956/Desktop/Magnetometro_de_Rb/Lockin/ip/FIR/FIR_II_sim/FIR_II_tb.vhd|
+Z59 !s107 C:/Users/va956/Desktop/Magnetometro_de_Rb/Lockin/ip/FIR/FIR_II_sim/FIR_II_tb.vhd|
+!i113 1
+R12
+Artl
+R14
+R15
+R44
+R16
+R5
+R6
+DEx4 work 9 fir_ii_tb 0 22 HZ?@FYlWiZ0AD:C]L]MPE1
+l140
+L54
+VdU^l1Wzn:KC3a8n`[DWNI2
+!s100 @JnTR`GQLHQLf8g_W>Z2z2
+R9
+32
+R40
+!i10b 1
+R41
+R58
+R59
+!i113 1
+R12
